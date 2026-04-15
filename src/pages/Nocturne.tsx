@@ -24,7 +24,7 @@ export default function Nocturne() {
 
       <div className="text-center mb-20 space-y-4">
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Programmes Accélérés</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-text-primary">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
         <p className="text-text-secondary max-w-2xl mx-auto font-medium opacity-80">
           Programmes intensifs de 6 mois conçus pour les personnes actives souhaitant se reconvertir.
         </p>

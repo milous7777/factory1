@@ -14,7 +14,7 @@ export default function Contact() {
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20 space-y-4">
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Contactez-nous</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">RESTEZ EN <span className="text-gold">CONTACT</span></h1>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-text-primary">RESTEZ EN <span className="text-gold">CONTACT</span></h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -30,22 +30,22 @@ export default function Contact() {
                   {info.icon}
                 </div>
                 <div>
-                  <h4 className="font-black text-sm uppercase tracking-widest mb-1">{info.title}</h4>
+                  <h4 className="font-black text-sm uppercase tracking-widest mb-1 text-text-primary">{info.title}</h4>
                   <p className="text-text-secondary font-medium text-sm leading-relaxed opacity-80">{info.content}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="bg-luxury-black p-10 rounded-[3rem] shadow-2xl border border-white/10 space-y-8">
-            <h3 className="text-white text-3xl font-black tracking-tighter">Besoin d'aide ?</h3>
-            <p className="text-white/50 font-medium">Nos conseillers sont à votre écoute pour répondre à toutes vos questions concernant les formations et l'inscription.</p>
+          <div className="bg-white dark:bg-luxury-black p-10 rounded-[3rem] shadow-2xl border border-black/5 dark:border-white/10 space-y-8">
+            <h3 className="text-text-primary text-3xl font-black tracking-tighter">Besoin d'aide ?</h3>
+            <p className="text-text-secondary opacity-60 font-medium">Nos conseillers sont à votre écoute pour répondre à toutes vos questions concernant les formations et l'inscription.</p>
             <div className="flex flex-wrap gap-4">
               <a href="https://wa.me/212767542604" className="flex-1 min-w-[200px] py-5 bg-gold text-black font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-gold-light transition-all shadow-xl">
                 WhatsApp Direct
                 <MessageCircle size={18} />
               </a>
-              <a href="tel:+212767542604" className="flex-1 min-w-[200px] py-5 bg-white/10 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-white/20 transition-all shadow-xl">
+              <a href="tel:+212767542604" className="flex-1 min-w-[200px] py-5 bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 text-text-primary font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-xl">
                 Appeler l'Institut
                 <Phone size={18} />
               </a>
@@ -76,14 +76,14 @@ export default function Contact() {
           </div>
 
           <div className="bg-white dark:bg-white/5 p-10 rounded-[3rem] border border-black/5 dark:border-white/5 shadow-xl space-y-8">
-            <h3 className="text-2xl font-black tracking-tighter">Envoyez-nous un message</h3>
+            <h3 className="text-2xl font-black tracking-tighter text-text-primary">Envoyez-nous un message</h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Nom" className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all" />
-                <input type="email" placeholder="Email" className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all" />
+                <input type="text" placeholder="Nom" className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-text-primary placeholder:text-text-secondary/40" />
+                <input type="email" placeholder="Email" className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-text-primary placeholder:text-text-secondary/40" />
               </div>
-              <textarea placeholder="Votre message..." rows={4} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-[2rem] px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all resize-none"></textarea>
-              <button className="w-full py-5 bg-luxury-black text-white font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-gold hover:text-black transition-all shadow-xl">
+              <textarea placeholder="Votre message..." rows={4} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-[2rem] px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all resize-none text-text-primary placeholder:text-text-secondary/40"></textarea>
+              <button className="w-full py-5 bg-luxury-black dark:bg-gold text-white dark:text-black font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-gold hover:text-black transition-all shadow-xl">
                 Envoyer le message
                 <Send size={18} />
               </button>

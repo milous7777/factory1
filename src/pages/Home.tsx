@@ -166,7 +166,7 @@ export default function Home() {
 
       {/* Stats Section - Glassmorphism & Futuristic Style */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-luxury-black z-0" />
+        <div className="absolute inset-0 bg-white dark:bg-luxury-black z-0" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
@@ -179,7 +179,7 @@ export default function Home() {
                 className="group relative"
               >
                 {/* Glassmorphism Card */}
-                <div className="h-full p-8 rounded-[2rem] bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold/50 transition-all duration-500 flex flex-col items-center text-center space-y-4 overflow-hidden">
+                <div className="h-full p-8 rounded-[2rem] bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 hover:border-gold/50 transition-all duration-500 flex flex-col items-center text-center space-y-4 overflow-hidden">
                   {/* Glowing Border Effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent" />
@@ -194,7 +194,7 @@ export default function Home() {
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-white text-4xl md:text-5xl font-black tracking-tighter">
+                    <p className="text-text-primary text-4xl md:text-5xl font-black tracking-tighter">
                       <Counter value={stat.value} suffix={stat.suffix} />
                     </p>
                     <p className="text-gold font-bold text-xs uppercase tracking-[0.2em] opacity-80 group-hover:opacity-100 transition-opacity">
