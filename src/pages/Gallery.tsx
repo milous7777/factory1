@@ -85,7 +85,7 @@ export default function Gallery() {
               "px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border",
               filter === cat.id 
                 ? "bg-gold text-black border-gold shadow-lg shadow-gold/20" 
-                : "bg-black/5 dark:bg-white/5 text-text-secondary opacity-60 border-black/10 dark:border-white/10 hover:border-gold/50"
+                : "bg-white/5 text-white/60 border-white/10 hover:border-gold/50"
             )}
           >
             {cat.name}

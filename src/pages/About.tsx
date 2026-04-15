@@ -47,9 +47,9 @@ export default function About() {
           <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
             <img src="https://i.postimg.cc/bvWf48vF/IMG_20260410_WA0095.jpg" alt="About Factory" className="w-full h-full object-cover" />
           </div>
-          <div className="absolute -top-10 -right-10 bg-white dark:bg-luxury-black p-10 rounded-[2.5rem] shadow-2xl border border-black/5 dark:border-white/10 hidden md:block">
+          <div className="absolute -top-10 -right-10 bg-luxury-black p-10 rounded-[2.5rem] shadow-2xl border border-white/10 hidden md:block">
             <p className="text-gold font-black text-6xl tracking-tighter">15+</p>
-            <p className="text-text-secondary opacity-40 font-bold text-xs uppercase tracking-widest">Années d'Expertise</p>
+            <p className="text-white/40 font-bold text-xs uppercase tracking-widest">Années d'Expertise</p>
           </div>
         </motion.div>
       </div>
@@ -62,11 +62,11 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white dark:bg-white/5 p-10 rounded-[2.5rem] border border-black/5 dark:border-white/5 shadow-xl space-y-6 text-center"
+            className="bg-white/5 p-10 rounded-[2.5rem] border border-white/5 shadow-xl space-y-6 text-center"
           >
             <div className="flex justify-center">{v.icon}</div>
             <h4 className="text-xl font-black tracking-tighter">{v.title}</h4>
-            <p className="text-sm text-text-secondary font-medium opacity-70 leading-relaxed">{v.desc}</p>
+            <p className="text-sm text-white/70 font-medium leading-relaxed">{v.desc}</p>
           </motion.div>
         ))}
       </div>

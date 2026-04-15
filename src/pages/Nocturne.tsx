@@ -24,8 +24,8 @@ export default function Nocturne() {
 
       <div className="text-center mb-20 space-y-4">
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Programmes Accélérés</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-text-primary">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
-        <p className="text-text-secondary max-w-2xl mx-auto font-medium opacity-80">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
+        <p className="text-white/60 max-w-2xl mx-auto font-medium">
           Programmes intensifs de 6 mois conçus pour les personnes actives souhaitant se reconvertir.
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function Nocturne() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: j * 0.1 }}
-            className="group relative overflow-hidden rounded-[2.5rem] bg-white dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-xl"
+            className="group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/5 shadow-xl"
           >
             <div className="aspect-[4/5] overflow-hidden">
               <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
