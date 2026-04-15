@@ -60,7 +60,7 @@ export default function Formations() {
               to={cat.title === 'Période Diurne' ? '/diurne' : '/nocturne'}
               className="mt-4 px-12 py-5 bg-gold text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white transition-all duration-500 flex items-center gap-3"
             >
-              Découvrir les شعب <ArrowRight size={20} />
+              Découvrir les FILIÈRES <ArrowRight size={20} />
             </Link>
           </motion.div>
         ))}

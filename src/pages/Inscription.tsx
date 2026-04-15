@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, CheckCircle2, ArrowRight, Info, X, Sun, Moon, Minus } from 'lucide-react';
+import { FileText, CheckCircle2, ArrowRight, Info, X, Sun, Moon, Minus, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Inscription() {
@@ -30,6 +30,15 @@ export default function Inscription() {
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+      <motion.button
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        onClick={() => navigate(-1)}
+        className="flex items-center gap-2 text-gold font-bold uppercase tracking-widest text-xs mb-12 hover:gap-4 transition-all"
+      >
+        <ArrowLeft size={16} /> Retour
+      </motion.button>
+
       <div className="text-center mb-20 space-y-4">
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Rejoignez-nous</span>
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter">DOSSIER D'<span className="text-gold">INSCRIPTION</span></h1>

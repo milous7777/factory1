@@ -50,7 +50,7 @@ export default function FormationDetails() {
       <motion.button
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/formations')}
         className="flex items-center gap-2 text-gold font-bold uppercase tracking-widest text-xs mb-12 hover:gap-4 transition-all"
       >
         <ArrowLeft size={16} /> Retour
@@ -227,7 +227,7 @@ export default function FormationDetails() {
               )}
               <button
                 type="submit"
-                className="w-full py-5 bg-gold text-black font-black uppercase tracking-widest text-sm rounded-full flex items-center justify-center gap-3 hover:bg-gold-light transition-all shadow-xl"
+                className="w-full py-5 bg-gold text-black font-black uppercase tracking-widest text-sm rounded-full flex items-center justify-center gap-1.5 hover:bg-gold-light transition-all shadow-xl"
               >
                 Envoyer sur WhatsApp
                 <Send size={18} />

@@ -40,9 +40,9 @@ export default function Footer() {
         <div>
           <h4 className="text-gold font-bold uppercase tracking-widest text-xs mb-6">Formations</h4>
           <ul className="flex flex-col gap-4 text-sm font-medium text-white/70">
-            <li><Link to="/formations/hommes" className="hover:text-gold transition-colors">Coiffure Hommes</Link></li>
-            <li><Link to="/formations/femmes" className="hover:text-gold transition-colors">Coiffure Femmes</Link></li>
-            <li><Link to="/formations/esthetique" className="hover:text-gold transition-colors">Esthétique & Soins</Link></li>
+            <li><Link to="/diurne" className="hover:text-gold transition-colors">Période Diurne</Link></li>
+            <li><Link to="/nocturne" className="hover:text-gold transition-colors">Période Nocturne</Link></li>
+            <li><Link to="/formations" className="hover:text-gold transition-colors">Toutes les Filières</Link></li>
             <li><Link to="/inscription" className="hover:text-gold transition-colors">Dossier d'inscription</Link></li>
           </ul>
         </div>

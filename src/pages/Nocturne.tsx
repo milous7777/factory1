@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Moon } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight, Moon, ArrowLeft } from 'lucide-react';
 
 export default function Nocturne() {
+  const navigate = useNavigate();
   const items = [
     { name: 'Coiffure Hommes', path: '/formations/hommes/nuit', image: 'https://i.postimg.cc/g0nPMrGm/IMG-20260410-WA0119.jpg' },
     { name: 'Coiffure Femmes', path: '/formations/femmes/nuit', image: 'https://i.postimg.cc/yYbs4FWJ/IMG-20260410-WA0098.jpg' },
@@ -12,6 +13,15 @@ export default function Nocturne() {
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+      <motion.button
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        onClick={() => navigate('/formations')}
+        className="flex items-center gap-2 text-gold font-bold uppercase tracking-widest text-xs mb-12 hover:gap-4 transition-all"
+      >
+        <ArrowLeft size={16} /> Retour
+      </motion.button>
+
       <div className="text-center mb-20 space-y-4">
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Programmes Accélérés</span>
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
