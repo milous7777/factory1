@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, CheckCircle2, ArrowRight, Info, X, Sun, Moon, Minus, ArrowLeft } from 'lucide-react';
+import { FileText, CheckCircle2, ArrowRight, Info, X, Sun, Moon, Minus, ArrowLeft, Send } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Inscription() {
@@ -107,6 +107,36 @@ export default function Inscription() {
                   <ArrowRight className="text-gold group-hover:text-black" size={20} />
                 </button>
               ))}
+            </div>
+
+            <div className="pt-8 border-t border-black/5 dark:border-white/10">
+              <h3 className="text-2xl font-black tracking-tighter mb-6">Pré-inscription Rapide</h3>
+              <form 
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const name = formData.get('name');
+                  const phone = formData.get('phone');
+                  const formation = formData.get('formation');
+                  const whatsappMessage = `Bonjour Institut Factory,\n\nJe souhaite me pré-inscrire :\nNom: ${name}\nTéléphone: ${phone}\nFormation: ${formation}`;
+                  const whatsappUrl = `https://wa.me/212767542604?text=${encodeURIComponent(whatsappMessage)}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
+              >
+                <input name="name" type="text" placeholder="Nom Complet" required className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-text-primary placeholder:text-text-secondary/40" />
+                <input name="phone" type="tel" placeholder="Téléphone" required className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-text-primary placeholder:text-text-secondary/40" />
+                <select name="formation" required className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-text-primary appearance-none">
+                  <option value="" className="text-black">Choisir une formation</option>
+                  {formations.map(f => (
+                    <option key={f.id} value={f.name} className="text-black">{f.name}</option>
+                  ))}
+                </select>
+                <button type="submit" className="w-full py-5 bg-gold text-black font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-gold-light transition-all shadow-xl">
+                  Envoyer sur WhatsApp
+                  <Send size={18} />
+                </button>
+              </form>
             </div>
 
             {/* Confirmation Modal */}

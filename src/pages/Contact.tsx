@@ -77,14 +77,26 @@ export default function Contact() {
 
           <div className="bg-white/5 p-10 rounded-[3rem] border border-white/5 shadow-xl space-y-8">
             <h3 className="text-2xl font-black tracking-tighter text-white">Envoyez-nous un message</h3>
-            <form className="space-y-6">
+            <form 
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                const whatsappMessage = `Bonjour Institut Factory,\n\nNom: ${name}\nEmail: ${email}\nMessage: ${message}`;
+                const whatsappUrl = `https://wa.me/212767542604?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank');
+              }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Nom" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-white placeholder:text-white/20" />
-                <input type="email" placeholder="Email" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-white placeholder:text-white/20" />
+                <input name="name" type="text" placeholder="Nom" required className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-white placeholder:text-white/20" />
+                <input name="email" type="email" placeholder="Email" required className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all text-white placeholder:text-white/20" />
               </div>
-              <textarea placeholder="Votre message..." rows={4} className="w-full bg-white/5 border border-white/10 rounded-[2rem] px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all resize-none text-white placeholder:text-white/20"></textarea>
-              <button className="w-full py-5 bg-gold text-black font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-white transition-all shadow-xl">
-                Envoyer le message
+              <textarea name="message" placeholder="Votre message..." rows={4} required className="w-full bg-white/5 border border-white/10 rounded-[2rem] px-6 py-4 outline-none focus:ring-2 focus:ring-gold transition-all resize-none text-white placeholder:text-white/20"></textarea>
+              <button type="submit" className="w-full py-5 bg-gold text-black font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-white transition-all shadow-xl">
+                Envoyer sur WhatsApp
                 <Send size={18} />
               </button>
             </form>
