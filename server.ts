@@ -67,12 +67,16 @@ async function startServer() {
       });
 
       const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error.message || "OpenRouter Error");
+      }
+
       const reply = data.choices?.[0]?.message?.content || "Désolé, je ne peux pas répondre pour le moment.";
       
       res.json({ reply });
-    } catch (error) {
+    } catch (error: any) {
       console.error("OpenRouter Error:", error);
-      res.status(500).json({ error: "Server Error" });
+      res.status(500).json({ error: error.message || "Server Error" });
     }
   });
 

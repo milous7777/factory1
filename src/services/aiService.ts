@@ -10,12 +10,19 @@ export const aiService = {
       });
 
       if (!response.ok) {
-        throw new Error("Erreur lors de la communication avec le serveur.");
+        let errorMessage = "Erreur serveur";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch (e) {
+          // Fallback to text if json fails
+        }
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
       return data.reply;
-    } catch (error) {
+    } catch (error: any) {
       console.error("AI Service Error:", error);
       throw error;
     }
