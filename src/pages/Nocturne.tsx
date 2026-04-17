@@ -7,8 +7,6 @@ export default function Nocturne() {
   const navigate = useNavigate();
   const items = [
     { name: 'Coiffure Hommes', path: '/formations/hommes/nuit', image: 'https://i.postimg.cc/g0nPMrGm/IMG-20260410-WA0119.jpg' },
-    { name: 'Coiffure Femmes', path: '/formations/femmes/nuit', image: 'https://i.postimg.cc/yYbs4FWJ/IMG-20260410-WA0098.jpg' },
-    { name: 'Esthétique & Soins', path: '/formations/esthetique/nuit', image: 'https://i.postimg.cc/ncPpbvMZ/IMG-20260410-WA0100.jpg' },
   ];
 
   return (
@@ -26,11 +24,11 @@ export default function Nocturne() {
         <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Programmes Accélérés</span>
         <h1 className="text-5xl md:text-7xl font-black tracking-tighter">PÉRIODE <span className="text-gold">NOCTURNE</span></h1>
         <p className="text-white/60 max-w-2xl mx-auto font-medium">
-          Programmes intensifs de 6 mois conçus pour les personnes actives souhaitant se reconvertir.
+          Programme intensif de 6 mois conçu pour les hommes souhaitant une formation rapide.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-md mx-auto">
         {items.map((item, j) => (
           <motion.div
             key={j}

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Loader2, User, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { geminiService } from '../services/geminiService';
+import { aiService } from '../services/aiService';
 import { cn } from '../lib/utils';
 
 interface Message {
@@ -38,7 +38,7 @@ export default function Chatbot() {
         parts: [{ text: m.text }]
       }));
       
-      const response = await geminiService.chat(userMessage, history);
+      const response = await aiService.chat(userMessage, history);
       if (response) {
         setMessages(prev => [...prev, { role: 'model', text: response }]);
       }
@@ -121,14 +121,60 @@ export default function Chatbot() {
         )}
       </AnimatePresence>
 
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 rounded-full bg-gold text-black shadow-2xl flex items-center justify-center hover:bg-gold-light transition-all border-4 border-white dark:border-luxury-black"
-      >
-        {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
-      </motion.button>
+      <div className="relative">
+        {/* Pulse Effect Rings */}
+        <AnimatePresence>
+          {!isOpen && (
+            <>
+              <motion.div
+                initial={{ scale: 1, opacity: 0.5 }}
+                animate={{ scale: 1.5, opacity: 0 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                className="absolute inset-0 rounded-full bg-gold z-[-1]"
+              />
+              <motion.div
+                initial={{ scale: 1, opacity: 0.3 }}
+                animate={{ scale: 1.8, opacity: 0 }}
+                transition={{ duration: 2, delay: 0.5, repeat: Infinity, ease: "easeOut" }}
+                className="absolute inset-0 rounded-full bg-gold z-[-1]"
+              />
+            </>
+          )}
+        </AnimatePresence>
+
+        <motion.button
+          whileHover={{ scale: 1.05, backgroundColor: '#EAB308' }}
+          whileTap={{ scale: 0.95 }}
+          animate={!isOpen ? {
+            scale: [1, 1.05, 1],
+          } : {}}
+          transition={!isOpen ? {
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          } : {}}
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-16 h-16 rounded-full bg-gold text-black shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(212,175,55,0.2)] flex items-center justify-center hover:bg-gold-light transition-all duration-300 relative z-10"
+        >
+          {isOpen ? (
+            <motion.div
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <MessageSquare size={28} fill="currentColor" strokeWidth={0} />
+            </motion.div>
+          )}
+        </motion.button>
+      </div>
     </div>
   );
 }

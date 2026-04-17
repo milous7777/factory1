@@ -23,6 +23,7 @@ export default function Inscription() {
   ];
 
   const formations = [
+    { id: 'mixte', name: 'Pack Premium (Mixte)' },
     { id: 'hommes', name: 'Coiffure Hommes' },
     { id: 'femmes', name: 'Coiffure Femmes' },
     { id: 'esthetique', name: 'Esthétique & Soins' }

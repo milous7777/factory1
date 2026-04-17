@@ -1,7 +1,7 @@
 export interface Formation {
   id: string;
   title: string;
-  category: 'hommes' | 'femmes' | 'esthetique';
+  category: 'hommes' | 'femmes' | 'esthetique' | 'mixte';
   type: 'jour' | 'nuit';
   description: string;
   duration: string;
@@ -12,6 +12,32 @@ export interface Formation {
 }
 
 export const FORMATIONS_DATA: Formation[] = [
+  {
+    id: 'mixte-jour',
+    title: 'Coiffure Mixte (Hommes & Femmes)',
+    category: 'mixte',
+    type: 'jour',
+    description: "La formation ultime pour devenir un coiffeur polyvalent. Maîtrisez à la fois la coiffure masculine et féminine dans ce pack premium exclusif. Une opportunité unique pour doubler vos opportunités professionnelles.",
+    duration: '10 ou 12 mois',
+    price: '400 DH - 500 DH / mois',
+    images: [
+      'https://i.postimg.cc/bvWf48vF/IMG-20260410-WA0095.jpg',
+      'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg',
+      'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg'
+    ],
+    benefits: [
+      'Polyvalence totale (Hommes & Femmes)',
+      'Double diplôme interne',
+      'Maîtrise de toutes les techniques',
+      'Accès prioritaire aux stages'
+    ],
+    curriculum: [
+      'Toutes les techniques hommes',
+      'Toutes les techniques femmes',
+      'Gestion de salon polyvalent',
+      'Conseil en image mixte'
+    ]
+  },
   {
     id: 'hommes-jour',
     title: 'Coiffure Hommes (Jour)',
