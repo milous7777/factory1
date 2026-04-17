@@ -42,9 +42,12 @@ export default function Chatbot() {
       if (response) {
         setMessages(prev => [...prev, { role: 'model', text: response }]);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: "Désolé, j'ai rencontré une petite erreur technique. N'hésitez pas à nous appeler directement au +212 767 542 604." }]);
+      const errorMessage = error.message && error.message.length < 100 
+        ? error.message 
+        : "Désolé, j'ai rencontré une petite erreur technique. N'hésitez pas à nous appeler directement au +212 767 542 604.";
+      setMessages(prev => [...prev, { role: 'model', text: errorMessage }]);
     } finally {
       setIsLoading(false);
     }

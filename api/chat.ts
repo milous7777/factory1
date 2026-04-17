@@ -1,5 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+// CRITICAL: Hardcoding the key here to ensure it works on Vercel without manual env setup
+const OPENROUTER_KEY = "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";
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -7,8 +10,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const { message, history } = req.body;
-    // Uses Environment Variable if set (Local), otherwise falls back to hardcoded key (Vercel)
-    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "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";
+    
+    // Use environment variable if available (for flexibility), otherwise use hardcoded key
+    const apiKey = (process.env.OPENROUTER_API_KEY && process.env.OPENROUTER_API_KEY.length > 30) 
+      ? process.env.OPENROUTER_API_KEY 
+      : OPENROUTER_KEY;
 
     const systemInstruction = `
       Tu es l'assistant virtuel de l'Institut Factory de Coiffure et d’Esthétique à Ouled Teima.
@@ -25,32 +31,41 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json"
+        "Authorization": `Bearer ${apiKey.trim()}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://factory1-pied.vercel.app",
+        "X-Title": "Institut Factory"
       },
       body: JSON.stringify({
         model: "nvidia/nemotron-3-super-120b-a12b:free",
         messages: [
-          { role: "system", content: systemInstruction },
-          ...history.map((m: any) => ({
-            role: m.role === 'model' ? 'assistant' : 'user',
-            content: m.parts[0].text
-          })),
-          { role: "user", content: message }
+          { role: "user", content: `${systemInstruction}\n\nQuestion de l'utilisateur: ${message}` }
         ]
       })
     });
 
-    const data = await response.json();
-    if (data.error) {
-      throw new Error(data.error.message || "OpenRouter Error");
+    if (!response.ok) {
+        const errorText = await response.text();
+        let errorData;
+        try {
+            errorData = JSON.parse(errorText);
+        } catch (e) {
+            errorData = { error: { message: errorText } };
+        }
+        
+        const msg = errorData.error?.message || "OpenRouter Error";
+        if (msg.includes("User not found")) {
+            throw new Error("Clé API invalide ou compte OpenRouter non trouvé. Veuillez vérifier votre compte.");
+        }
+        throw new Error(msg);
     }
 
+    const data = await response.json();
     const reply = data.choices?.[0]?.message?.content || "Désolé, je ne peux pas répondre pour le moment.";
     res.status(200).json({ reply });
 
   } catch (error: any) {
     console.error("Vercel API Error:", error);
-    res.status(500).json({ error: error.message || "Internal Server Error" });
+    res.status(500).json({ error: error.message || "Erreur lors de la connexion à l'IA" });
   }
 }

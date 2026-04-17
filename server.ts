@@ -19,7 +19,9 @@ async function startServer() {
   app.post("/api/chat", async (req, res) => {
     try {
       const { message, history } = req.body;
-      const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "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";
+      const key = process.env.OPENROUTER_API_KEY;
+      // Use provided key if env is empty or too short (placeholder)
+      const OPENROUTER_API_KEY = (key && key.length > 20) ? key : "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";
 
       const systemInstruction = `
         Tu es l'assistant virtuel de l'Institut Factory de Coiffure et d’Esthétique à Ouled Teima.
@@ -44,28 +46,31 @@ async function startServer() {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-          "HTTP-Referer": "https://ais-dev.run.app", // Optional
-          "X-Title": "Institut Factory Chatbot", // Optional
-          "Content-Type": "application/json"
+          "Authorization": `Bearer ${OPENROUTER_API_KEY.trim()}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://factory1-pied.vercel.app",
+          "X-Title": "Institut Factory"
         },
         body: JSON.stringify({
           model: "nvidia/nemotron-3-super-120b-a12b:free",
           messages: [
-            { role: "system", content: systemInstruction },
-            ...history.map((m: any) => ({
-              role: m.role === 'model' ? 'assistant' : 'user',
-              content: m.parts[0].text
-            })),
-            { role: "user", content: message }
+            { role: "user", content: `${systemInstruction}\n\nQuestion de l'utilisateur: ${message}` }
           ]
         })
       });
 
-      const data = await response.json();
-      if (data.error) {
-        throw new Error(data.error.message || "OpenRouter Error");
+      if (!response.ok) {
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch (e) {
+          errorData = { error: { message: errorText } };
+        }
+        throw new Error(errorData.error?.message || "OpenRouter Error");
       }
+
+      const data = await response.json();
 
       const reply = data.choices?.[0]?.message?.content || "Désolé, je ne peux pas répondre pour le moment.";
       
