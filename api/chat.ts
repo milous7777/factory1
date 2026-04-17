@@ -7,8 +7,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const { message, history } = req.body;
-    // Hardcoded for Vercel deployment convenience as requested
-    const OPENROUTER_API_KEY = "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";
+    // Uses Environment Variable if set (Local), otherwise falls back to hardcoded key (Vercel)
+    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || "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";
 
     const systemInstruction = `
       Tu es l'assistant virtuel de l'Institut Factory de Coiffure et d’Esthétique à Ouled Teima.
