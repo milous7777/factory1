@@ -114,5 +114,55 @@ export const FORMATIONS_DATA: Formation[] = [
       'Taille de barbe',
       'Finitions et coiffage'
     ]
+  },
+  {
+    id: 'femmes-nuit',
+    title: 'Coiffure Femmes (Nuit)',
+    category: 'femmes',
+    type: 'nuit',
+    description: "Un programme intensif de 6 mois en soirée pour maîtriser la coiffure féminine, idéal pour les passionnées travaillant en journée.",
+    duration: '6 mois',
+    price: '800 DH / mois',
+    images: [
+      'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg',
+      'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg'
+    ],
+    benefits: [
+      'Horaires flexibles (19h-21h30)',
+      'Techniques de coloration rapides',
+      'Focus sur les brushings et coupes',
+      'Accompagnement intensif'
+    ],
+    curriculum: [
+      'Chignons de base',
+      'Coupes tendance',
+      'Coloration fondamentale',
+      'Mise en plis rapide'
+    ]
+  },
+  {
+    id: 'esthetique-nuit',
+    title: 'Esthétique & Soins (Nuit)',
+    category: 'esthetique',
+    type: 'nuit',
+    description: "Apprenez les fondamentaux de l'esthétique en 6 mois intensifs lors de nos sessions nocturnes.",
+    duration: '6 mois',
+    price: '800 DH / mois',
+    images: [
+      'https://i.postimg.cc/ncPpbvMZ/IMG-20260410-WA0100.jpg',
+      'https://i.postimg.cc/KvHxSn4c/IMG-20260410-WA0099.jpg'
+    ],
+    benefits: [
+      'Pratique sur modèles réels',
+      'Utilisation d’appareils modernes',
+      'Techniques de soins visage',
+      'Maquillage professionnel'
+    ],
+    curriculum: [
+      'Soins de base visage',
+      'Maquillage flash',
+      'Épilation à la cire',
+      'Manucure express'
+    ]
   }
 ];

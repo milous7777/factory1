@@ -69,7 +69,6 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold tracking-widest uppercase text-white/30">
         <p>© 2024 Institut Factory. Tous droits réservés.</p>
-        <p>Design by Luxe Digital</p>
       </div>
     </footer>
   );
