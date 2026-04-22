@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
+import { Accreditations } from '../components/Accreditations';
 import { motion, AnimatePresence } from 'motion/react';
 import { Award, BookOpen, Users, CheckCircle2, ArrowRight, ArrowLeft, Zap, X, Sun, Moon, Star, PlayCircle } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -79,17 +80,25 @@ export default function Home() {
               </motion.span>
               <div className="overflow-hidden">
                 <motion.h2 
-                  initial={{ y: "100%" }}
-                  whileInView={{ y: 0 }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.1] uppercase font-sans"
+                  className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.1] uppercase font-sans relative"
                 >
                   {isRTL ? t.home.intro.title : (
                     <>
                       VOTRE AVENIR DANS LA <span className="text-gold">HAUTE COIFFURE</span> COMMENCE ICI
                     </>
                   )}
+                  {/* Golden Shine Overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none"
+                    initial={{ x: "-100%" }}
+                    whileInView={{ x: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.2, duration: 2, ease: "easeInOut" }}
+                  />
                 </motion.h2>
               </div>
             </div>
@@ -155,6 +164,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <Accreditations />
 
       {/* Stats Section */}
       <section className="relative py-24 bg-luxury-black overflow-hidden border-y border-white/5">

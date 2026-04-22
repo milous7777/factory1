@@ -19,6 +19,9 @@ export interface Translations {
     inscription: string;
   };
   home: {
+    accreditations: {
+      text: string;
+    };
     intro: {
       tag: string;
       title: string;
@@ -190,6 +193,9 @@ export const translations: Record<Language, Translations> = {
       inscription: "S'inscrire",
     },
     home: {
+      accreditations: {
+        text: "Votre avenir professionnel commence par un diplôme reconnu. L'Institut Factory est un établissement de formation professionnelle agréé, dont les programmes sont validés par les autorités compétentes, garantissant une insertion rapide et crédible dans le monde de la coiffure d'excellence.",
+      },
       intro: {
         tag: "L'Excellence à Ouled Teima",
         title: "VOTRE AVENIR DANS LA HAUTE COIFFURE COMMENCE ICI",
@@ -370,6 +376,9 @@ export const translations: Record<Language, Translations> = {
       inscription: 'تسجيل',
     },
     home: {
+      accreditations: {
+        text: "مستقبلك المهني يبدأ بدبلوم معترف به. معهد Factory هو مؤسسة للتكوين المهني معتمدة، برامجها مصادق عليها من طرف السلطات المختصة، مما يضمن اندماجاً سريعاً وموثوقاً في عالم الحلاقة المتميزة.",
+      },
       intro: {
         tag: 'لماذا معهدنا؟',
         title: 'مستقبلك في عالم الحلاقة الراقية يبدأ من هنا',
