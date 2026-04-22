@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import GeometricGrid from './GeometricGrid';
+import ChatBot from './ChatBot';
 import { motion } from 'motion/react';
 import { useLanguage } from '../theme/LanguageContext';
 
@@ -23,6 +24,7 @@ export default function Layout() {
         </motion.div>
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 }
