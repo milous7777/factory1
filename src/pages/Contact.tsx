@@ -9,7 +9,7 @@ export default function Contact() {
   
   const contactInfo = [
     { icon: <MapPin className="text-gold" />, title: t.contact.addr, content: 'Av. Hassan II, Ouled Teima, Maroc (En face du lycée Abdellah Chefchaouni)' },
-    { icon: <Phone className="text-gold" />, title: t.contact.phone, content: '+212 767 542 604' },
+    { icon: <Phone className="text-gold" />, title: t.contact.phone, content: '+212 528 521 730' },
     { icon: <Mail className="text-gold" />, title: t.contact.email, content: 'institutfactory@gmail.com' },
     { icon: <Clock className="text-gold" />, title: t.contact.hours, content: 'Lun - Ven: 09:30 - 18:00 | Sam: 09:30 - 12:00' },
   ];
@@ -51,7 +51,7 @@ export default function Contact() {
                 WhatsApp Direct
                 <MessageCircle size={18} />
               </a>
-              <a href="tel:+212767542604" className="flex-1 min-w-[200px] py-5 bg-white/10 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-white/20 transition-all shadow-xl font-sans">
+              <a href="tel:+212528521730" className="flex-1 min-w-[200px] py-5 bg-white/10 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-full flex items-center justify-center gap-3 hover:bg-white/20 transition-all shadow-xl font-sans">
                 {isRTL ? 'اتصل بالمعهد' : "Appeler l'Institut"}
                 <Phone size={18} />
               </a>

@@ -8,7 +8,30 @@ const Localisation: React.FC = () => {
   const { t, isRTL } = useLanguage();
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 max-w-7xl mx-auto space-y-16">
+      <div className={cn("text-center space-y-4", isRTL && "text-right")}>
+        <motion.span 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-gold font-bold uppercase tracking-[0.3em] text-xs block font-sans"
+        >
+          {isRTL ? 'الوصول إلينا' : 'NOUS TROUVER'}
+        </motion.span>
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="text-white text-4xl md:text-6xl font-black tracking-tighter uppercase font-sans"
+        >
+          {isRTL ? (
+            <>موقع <span className="text-gold">المعهد</span></>
+          ) : (
+            <>LOCALISATION <span className="text-gold">FACTORY</span></>
+          )}
+        </motion.h2>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch min-h-[600px]">
         {/* Map Embed Section - 8 columns on desktop */}
         <motion.div 
@@ -58,7 +81,7 @@ const Localisation: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             <div className={cn("absolute bottom-6 left-6 right-6", isRTL && "text-right")}>
-              <p className="text-gold font-bold text-[10px] uppercase tracking-widest mb-1">{isRTL ? 'موقعنا' : 'NOTRE EMPLACEMENT'}</p>
+              <p className="text-white font-bold text-[10px] uppercase tracking-widest mb-1">{isRTL ? 'موقعنا' : 'NOTRE EMPLACEMENT'}</p>
               <h4 className="text-white text-xl font-black uppercase tracking-tighter font-sans">{isRTL ? 'المحل الرئيسي' : 'LOCALISATION RÉELLE'}</h4>
             </div>
           </div>
@@ -82,7 +105,7 @@ const Localisation: React.FC = () => {
                   <Phone size={16} />
                 </div>
                 <p className="text-gold font-black text-xs font-sans tracking-tight">
-                  +212 767 542 604
+                  +212 528 521 730
                 </p>
               </div>
             </div>
@@ -96,7 +119,7 @@ const Localisation: React.FC = () => {
                 WhatsApp
               </a>
               <a 
-                href="tel:+212767542604" 
+                href="tel:+212528521730" 
                 className="flex-1 py-3 bg-gold text-black hover:bg-white transition-all rounded-full flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-widest font-sans"
               >
                 <Phone size={14} />

@@ -369,7 +369,7 @@ export default function Home() {
                 {t.home.cta.btn}
               </motion.button>
             </Link>
-            <a href="tel:+212767542604">
+            <a href="tel:+212528521730">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
