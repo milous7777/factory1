@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import { Accreditations } from '../components/Accreditations';
+import Localisation from '../components/Localisation';
 import { motion, AnimatePresence } from 'motion/react';
 import { Award, BookOpen, Users, CheckCircle2, ArrowRight, ArrowLeft, Zap, X, Sun, Moon, Star, PlayCircle } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -380,6 +381,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Localisation />
     </div>
   );
 }
