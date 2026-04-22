@@ -27,14 +27,14 @@ export default function Home() {
     },
     { 
       icon: <BookOpen className="text-gold" />, 
-      value: 12, 
+      value: 3, 
       suffix: '', 
       label: t.home.stats.diplomas 
     },
     { 
       icon: <Zap className="text-gold" />, 
-      value: 20, 
-      suffix: '+', 
+      value: 98, 
+      suffix: '%', 
       label: t.home.stats.experts 
     },
   ];
@@ -83,9 +83,13 @@ export default function Home() {
                   whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl md:text-6xl font-black tracking-tighter leading-none uppercase font-sans"
+                  className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.1] uppercase font-sans"
                 >
-                  {t.home.intro.title.split(' ')[0]} <span className="text-gold">{t.home.intro.title.split(' ').slice(1).join(' ')}</span>
+                  {isRTL ? t.home.intro.title : (
+                    <>
+                      VOTRE AVENIR DANS LA <span className="text-gold">HAUTE COIFFURE</span> COMMENCE ICI
+                    </>
+                  )}
                 </motion.h2>
               </div>
             </div>
@@ -132,7 +136,7 @@ export default function Home() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://picsum.photos/seed/academy/800/1000" 
+                src="https://i.postimg.cc/bw6hH1cC/IMG_20260410_WA0132.jpg" 
                 alt="Formation Factory" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -314,15 +318,33 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto rounded-[3rem] p-12 md:p-20 text-center space-y-8 shadow-2xl relative overflow-hidden bg-luxury-black">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-0">
+        <div className="max-w-5xl mx-auto rounded-[3rem] p-12 md:p-20 text-center space-y-8 shadow-2xl relative overflow-hidden bg-luxury-black min-h-[500px] flex flex-col justify-center">
+          {/* Background Video */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-80"
+            >
+              <source
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_3CJJzIIZIaYaehVsH4R9u8pa1fm/hf_20260413_163604_0d89790e-ecac-457f-a4fc-0706537426e1.mp4"
+                type="video/mp4"
+              />
+            </video>
+            {/* Subtle Blur & Overlay */}
+            <div className="absolute inset-0 backdrop-blur-[3px] bg-black/40" />
+          </div>
+
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-[1]">
              <div className="geometric-grid" />
           </div>
 
           <h2 className="text-white text-4xl md:text-6xl font-black tracking-tighter leading-none relative z-10 font-sans uppercase">
             {t.home.cta.t.split(' ')[0]} <span className="text-gold">{t.home.cta.t.split(' ').slice(1).join(' ')}</span>
           </h2>
-          <p className="text-white/40 text-lg font-bold max-w-2xl mx-auto relative z-10">
+          <p className="text-white/80 text-lg font-bold max-w-2xl mx-auto relative z-10 drop-shadow-lg">
             {t.home.cta.d}
           </p>
           <div className="flex flex-wrap justify-center gap-4 relative z-10">

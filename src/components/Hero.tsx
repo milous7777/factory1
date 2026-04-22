@@ -59,17 +59,17 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-gold text-black text-xs font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-xl hover:bg-gold-light transition-colors font-sans"
               >
-                {t.hero.cta1}
+                {t.hero.formations}
                 {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
               </motion.button>
             </Link>
-            <Link to="/contact">
+            <Link to="/inscription">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/20 transition-colors font-sans"
+                className="px-8 py-3 bg-transparent border border-white/40 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/10 transition-colors font-sans"
               >
-                {t.hero.cta2}
+                {t.hero.inscription}
               </motion.button>
             </Link>
           </div>

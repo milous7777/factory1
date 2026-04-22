@@ -192,16 +192,16 @@ export const translations: Record<Language, Translations> = {
     home: {
       intro: {
         tag: "L'Excellence à Ouled Teima",
-        title: "VOTRE AVENIR ICI",
+        title: "VOTRE AVENIR DANS LA HAUTE COIFFURE COMMENCE ICI",
         desc1: "L'Institut Factory n'est pas seulement une école, c'est un tremplin vers une carrière d'exception. Situé au cœur d'Ouled Teima, notre centre de formation professionnelle vous offre un environnement d'apprentissage moderne, alliant théorie rigoureuse et pratique intensive.",
         desc2: "Accrédité par l'État Marocain, notre diplôme est un gage de qualité et de sérieux, ouvrant les portes des plus grands salons et permettant l'entrepreneuriat avec assurance.",
       },
       destiny: "CHOISISSEZ VOTRE DESTIN",
       stats: {
-        graduates: 'Étudiants Formés',
-        experience: 'Années d’Expérience',
-        diplomas: 'Diplômes Accrédités',
-        experts: 'Experts Formateurs',
+        graduates: 'ÉTUDIANTS FORMÉS',
+        experience: "ANNÉES D'EXPÉRIENCE",
+        diplomas: 'SPÉCIALITÉS CLÉS',
+        experts: 'TAUX DE RÉUSSITE',
       },
       formations: {
         title: 'CHOISISSEZ VOTRE DESTIN',
@@ -372,16 +372,16 @@ export const translations: Record<Language, Translations> = {
     home: {
       intro: {
         tag: 'لماذا معهدنا؟',
-        title: 'التميز الذي يصنع الفارق',
+        title: 'مستقبلك في عالم الحلاقة الراقية يبدأ من هنا',
         desc1: 'نحن فخورون بكوننا المعهد الرائد في منطقة أولاد تايمة، حيث نقدم تكويناً احترافياً عالي المستوى يلبي احتياجات سوق الشغل.',
         desc2: 'بفضل خبرة تمتد لأكثر من 15 سنة، معهدنا معتمد من طرف الدولة المغربية، مما يضمن لكم جودة تعليمية وشهادة معترف بها وطنيًا ودوليًا.',
       },
       destiny: 'اختر مستقبلك',
       stats: {
-        graduates: 'خريج ناجح',
-        experience: 'أعوام من الخبرة',
-        diplomas: 'شهادات معتمدة',
-        experts: 'مكون خبير',
+        graduates: 'طلاب مكونون',
+        experience: 'سنوات خبرة',
+        diplomas: 'تخصصات رئيسية',
+        experts: 'نسبة النجاح',
       },
       formations: {
         title: 'اختر مسارك المهني',
