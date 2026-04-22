@@ -1,194 +1,220 @@
 export interface Formation {
   id: string;
-  title: string;
   category: 'hommes' | 'femmes' | 'esthetique' | 'mixte';
   type: 'jour' | 'nuit';
-  description: string;
-  duration: string;
-  price: string;
   images: string[];
-  benefits: string[];
-  curriculum: string[];
+  translations: {
+    fr: {
+      title: string;
+      description: string;
+      duration: string;
+      price: string;
+      benefits: string[];
+      curriculum: string[];
+    };
+    ar: {
+      title: string;
+      description: string;
+      duration: string;
+      price: string;
+      benefits: string[];
+      curriculum: string[];
+    };
+  };
 }
 
 export const FORMATIONS_DATA: Formation[] = [
   {
     id: 'mixte-jour',
-    title: 'Coiffure Mixte (Hommes & Femmes)',
     category: 'mixte',
     type: 'jour',
-    description: "La formation ultime pour devenir un coiffeur polyvalent. Maîtrisez à la fois la coiffure masculine et féminine dans ce pack premium exclusif. Une opportunité unique pour doubler vos opportunités professionnelles.",
-    duration: '10 ou 12 mois',
-    price: '400 DH - 500 DH / mois',
     images: [
       'https://i.postimg.cc/bvWf48vF/IMG-20260410-WA0095.jpg',
       'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg',
       'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg'
     ],
-    benefits: [
-      'Polyvalence totale (Hommes & Femmes)',
-      'Double diplôme interne',
-      'Maîtrise de toutes les techniques',
-      'Accès prioritaire aux stages'
-    ],
-    curriculum: [
-      'Toutes les techniques hommes',
-      'Toutes les techniques femmes',
-      'Gestion de salon polyvalent',
-      'Conseil en image mixte'
-    ]
+    translations: {
+      fr: {
+        title: 'Coiffure Mixte (Pack Premium)',
+        description: "La formation ultime pour devenir un coiffeur polyvalent. Maîtrisez à la fois la coiffure masculine et féminine dans ce pack premium exclusif.",
+        duration: '10 ou 12 mois',
+        price: '400 DH - 500 DH / mois',
+        benefits: ['Polyvalence totale', 'Double diplôme interne', 'Toutes les techniques'],
+        curriculum: ['Coupe hommes', 'Coupe femmes', 'Colorimétrie mixte', 'Gestion de salon'],
+      },
+      ar: {
+        title: 'حلاقة مختلطة (عرض ممتاز)',
+        description: 'التكوين الأمثل لتصبح حلاقاً شاملاً. أتقن حلاقة الرجال والنساء في هذا العرض الحصري والممتاز.',
+        duration: '10 أو 12 شهراً',
+        price: '400 - 500 درهم / الشهر',
+        benefits: ['شامل (رجال ونساء)', 'دبلوم مزدوج', 'إتقان جميع التقنيات'],
+        curriculum: ['حلاقة الرجال', 'حلاقة النساء', 'تلوين الشعر', 'تسيير الصالون'],
+      }
+    }
   },
   {
     id: 'hommes-jour',
-    title: 'Coiffure Hommes (Jour)',
     category: 'hommes',
     type: 'jour',
-    description: "Une formation intensive de 10 à 12 mois pour maîtriser toutes les facettes de la coiffure masculine moderne. De la coupe classique au dégradé américain, en passant par l'entretien de la barbe.",
-    duration: '10 ou 12 mois',
-    price: '350 DH - 400 DH / mois',
     images: [
       'https://i.postimg.cc/bvWf48vF/IMG-20260410-WA0095.jpg',
       'https://i.postimg.cc/BvkfRsvC/IMG-20260410-WA0096.jpg',
       'https://i.postimg.cc/0NF1hxNJ/IMG-20260410-WA0114.jpg'
     ],
-    benefits: [
-      'Maîtrise des outils professionnels',
-      'Techniques de rasage traditionnel',
-      'Colorimétrie masculine',
-      'Gestion d’un salon de coiffure'
-    ],
-    curriculum: [
-      'Hygiène et sécurité',
-      'Techniques de coupe aux ciseaux',
-      'Utilisation de la tondeuse',
-      'Soins capillaires et barbe'
-    ]
+    translations: {
+      fr: {
+        title: 'Coiffure Hommes (Jour)',
+        description: "Une formation intensive pour maîtriser toutes les facettes de la coiffure masculine moderne. Du dégradé américain à l'entretien de la barbe.",
+        duration: '10 ou 12 mois',
+        price: '350 DH - 400 DH / mois',
+        benefits: ['Barbier traditionnel', 'Coupes modernes', 'Techniques de rasage'],
+        curriculum: ['Hygiène', 'Coupe ciseaux', 'Utilisation tondeuse', 'Soins barbe'],
+      },
+      ar: {
+        title: 'حلاقة الرجال (نهاراً)',
+        description: 'تكوين مكثف لإتقان جميع جوانب الحلاقة الرجالية الحديثة. من الحلاقة التقليدية إلى أحدث الصيحات.',
+        duration: '10 أو 12 شهراً',
+        price: '350 - 400 درهم / الشهر',
+        benefits: ['حلاقة تقليدية', 'قصات حديثة', 'تقنيات الحلاقة'],
+        curriculum: ['النظافة والسلامة', 'القص بالمقص', 'استعمال الآلة', 'العناية باللحية'],
+      }
+    }
   },
   {
     id: 'femmes-jour',
-    title: 'Coiffure Femmes (Jour)',
     category: 'femmes',
     type: 'jour',
-    description: "Devenez une experte en coiffure féminine. Cette formation couvre tout, des coupes de base aux coiffures de mariée les plus complexes, incluant la coloration et les traitements chimiques.",
-    duration: '10 ou 12 mois',
-    price: '400 DH - 500 DH / mois',
     images: [
       'https://i.postimg.cc/K83FZRgg/IMG-20260410-WA0030.jpg',
       'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg',
       'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg'
     ],
-    benefits: [
-      'Visagisme et conseil client',
-      'Techniques de coloration avancées',
-      'Chignons et coiffures de fête',
-      'Traitements capillaires profonds'
-    ],
-    curriculum: [
-      'Analyse du cheveu',
-      'Coupes classiques et modernes',
-      'Brushing et mise en forme',
-      'Coloration et mèches'
-    ]
+    translations: {
+      fr: {
+        title: 'Coiffure Femmes (Jour)',
+        description: "Devenez une experte en coiffure féminine. Des coupes de base aux coiffures de mariée les plus complexes.",
+        duration: '10 ou 12 mois',
+        price: '400 DH - 500 DH / mois',
+        benefits: ['Visagisme', 'Coloration avancée', 'Coiffure mariée'],
+        curriculum: ['Analyse cheveu', 'Coupes tendance', 'Brushing', 'Mèches'],
+      },
+      ar: {
+        title: 'حلاقة النساء (نهاراً)',
+        description: 'كوني خبيرة في حلاقة النساء. من القصات الأساسية إلى تسريحات العرائس الأكثر تعقيداً.',
+        duration: '10 أو 12 شهراً',
+        price: '400 - 500 درهم / الشهر',
+        benefits: ['خبير تجميل', 'تلوين متطور', 'تسريحات العرائس'],
+        curriculum: ['تحليل الشعر', 'قصات عصرية', 'بروشينغ', 'تخصيل الشعر'],
+      }
+    }
   },
   {
     id: 'esthetique-jour',
-    title: 'Esthétique & Soins (Jour)',
     category: 'esthetique',
     type: 'jour',
-    description: "Plongez dans l'univers de la beauté globale. Apprenez les soins du visage, du corps, la manucure, la pédicure et le maquillage professionnel.",
-    duration: '10 ou 12 mois',
-    price: '400 DH - 500 DH / mois',
     images: [
       'https://i.postimg.cc/yYbs4FWJ/IMG-20260410-WA0098.jpg',
       'https://i.postimg.cc/KvHxSn4c/IMG-20260410-WA0099.jpg',
       'https://i.postimg.cc/ncPpbvMZ/IMG-20260410-WA0100.jpg'
     ],
-    benefits: [
-      'Soins du visage personnalisés',
-      'Maquillage jour, soir et mariée',
-      'Épilation professionnelle',
-      'Manucure et onglerie'
-    ],
-    curriculum: [
-      'Biologie de la peau',
-      'Techniques de massage facial',
-      'Utilisation des appareils esthétiques',
-      'Conseil en image'
-    ]
+    translations: {
+      fr: {
+        title: 'Esthétique & Soins (Jour)',
+        description: "Plongez dans l'univers de la beauté globale. Soins du visage, du corps, manucure et maquillage professionnel.",
+        duration: '10 ou 12 mois',
+        price: '400 DH - 500 DH / mois',
+        benefits: ['Maquillage pro', 'Soins visage', 'Manucure & Onglerie'],
+        curriculum: ['Biologie peau', 'Massages', 'Appareils esthétiques', 'Épilation'],
+      },
+      ar: {
+        title: 'التجميل والعناية (نهاراً)',
+        description: 'اغمسي في عالم الجمال الشامل. العناية بالوجه، الجسد، المانيكير والمكياج الاحترافي.',
+        duration: '10 أو 12 شهراً',
+        price: '400 - 500 درهم / الشهر',
+        benefits: ['مكياج احترافي', 'عناية بالوجه', 'تقليم الأظافر'],
+        curriculum: ['بيولوجيا البشرة', 'التدليك', 'أجهزة التجميل', 'إزالة الشعر'],
+      }
+    }
   },
   {
     id: 'hommes-nuit',
-    title: 'Coiffure Hommes (Nuit)',
     category: 'hommes',
     type: 'nuit',
-    description: "Un programme accéléré de 6 mois conçu pour les personnes actives souhaitant se reconvertir ou se perfectionner en soirée.",
-    duration: '6 mois',
-    price: '800 DH / mois',
     images: [
       'https://i.postimg.cc/g0nPMrGm/IMG-20260410-WA0119.jpg',
       'https://i.postimg.cc/cJrND6dt/IMG-20260410-WA0120.jpg'
     ],
-    benefits: [
-      'Horaires flexibles (19h-21h30)',
-      'Apprentissage intensif',
-      'Focus sur les techniques de coupe',
-      'Accompagnement personnalisé'
-    ],
-    curriculum: [
-      'Bases de la coupe homme',
-      'Techniques de dégradé',
-      'Taille de barbe',
-      'Finitions et coiffage'
-    ]
+    translations: {
+      fr: {
+        title: 'Coiffure Hommes (Nuit)',
+        description: "Programme accéléré de 6 mois conçu pour les personnes actives souhaitant se perfectionner en soirée.",
+        duration: '6 mois',
+        price: '800 DH / mois',
+        benefits: ['Horaires flexibles', 'Focus pratique', 'Apprentissage rapide'],
+        curriculum: ['Bases coupe', 'Dégradé américain', 'Taille barbe', 'Finitions'],
+      },
+      ar: {
+        title: 'حلاقة الرجال (ليلاً)',
+        description: 'برنامج سريع من 6 أشهر مصمم للأشخاص النشيطين الراغبين في التعلم في الفترة المسائية.',
+        duration: '6 أشهر',
+        price: '800 درهم / الشهر',
+        benefits: ['أوقات مرنة', 'تركيز تطبيقي', 'تعلم سريع'],
+        curriculum: ['أساسيات القص', 'تدرج أمريكي', 'تحديد اللحية', 'اللمسات النهائية'],
+      }
+    }
   },
   {
     id: 'femmes-nuit',
-    title: 'Coiffure Femmes (Nuit)',
     category: 'femmes',
     type: 'nuit',
-    description: "Un programme intensif de 6 mois en soirée pour maîtriser la coiffure féminine, idéal pour les passionnées travaillant en journée.",
-    duration: '6 mois',
-    price: '800 DH / mois',
     images: [
       'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg',
       'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg'
     ],
-    benefits: [
-      'Horaires flexibles (19h-21h30)',
-      'Techniques de coloration rapides',
-      'Focus sur les brushings et coupes',
-      'Accompagnement intensif'
-    ],
-    curriculum: [
-      'Chignons de base',
-      'Coupes tendance',
-      'Coloration fondamentale',
-      'Mise en plis rapide'
-    ]
+    translations: {
+      fr: {
+        title: 'Coiffure Femmes (Nuit)',
+        description: "Programme intensif de 6 mois en soirée pour maîtriser les bases de la coiffure féminine.",
+        duration: '6 mois',
+        price: '800 DH / mois',
+        benefits: ['Emploi du temps adapté', 'Brushings & Coupes', 'Coloration de base'],
+        curriculum: ['Coupes essentielles', 'Brushing', 'Coloration', 'Mise en plis'],
+      },
+      ar: {
+        title: 'حلاقة النساء (ليلاً)',
+        description: 'برنامج مكثف من 6 أشهر في الفترة المسائية لإتقان أساسيات الحلاقة النسائية.',
+        duration: '6 أشهر',
+        price: '800 درهم / الشهر',
+        benefits: ['جدول زمني مناسب', 'بروشينغ وقص', 'تلوين أساسي'],
+        curriculum: ['قصات أساسية', 'بروشينغ', 'التلوين', 'تصفيف الشعر'],
+      }
+    }
   },
   {
     id: 'esthetique-nuit',
-    title: 'Esthétique & Soins (Nuit)',
     category: 'esthetique',
     type: 'nuit',
-    description: "Apprenez les fondamentaux de l'esthétique en 6 mois intensifs lors de nos sessions nocturnes.",
-    duration: '6 mois',
-    price: '800 DH / mois',
     images: [
       'https://i.postimg.cc/ncPpbvMZ/IMG-20260410-WA0100.jpg',
       'https://i.postimg.cc/KvHxSn4c/IMG-20260410-WA0099.jpg'
     ],
-    benefits: [
-      'Pratique sur modèles réels',
-      'Utilisation d’appareils modernes',
-      'Techniques de soins visage',
-      'Maquillage professionnel'
-    ],
-    curriculum: [
-      'Soins de base visage',
-      'Maquillage flash',
-      'Épilation à la cire',
-      'Manucure express'
-    ]
+    translations: {
+      fr: {
+        title: 'Esthétique & Soins (Nuit)',
+        description: "Apprenez les fondamentaux de l'esthétique en 6 mois intensifs lors de nos sessions nocturnes.",
+        duration: '6 mois',
+        price: '800 DH / mois',
+        benefits: ['Soins flash', 'Pratique intensive', 'Matériel moderne'],
+        curriculum: ['Soins visage basic', 'Maquillage rapide', 'Épilation cire', 'Manucure express'],
+      },
+      ar: {
+        title: 'التجميل والعناية (ليلاً)',
+        description: 'تعلمي أساسيات التجميل في 6 أشهر مكثفة خلال دوراتنا المسائية.',
+        duration: '6 أشهر',
+        price: '800 درهم / الشهر',
+        benefits: ['عناية سريعة', 'تطبيق مكثف', 'معدات حديثة'],
+        curriculum: ['عناية أساسية بالوجه', 'مكياج سريع', 'إزالة الشعر', 'مانيكير سريع'],
+      }
+    }
   }
 ];

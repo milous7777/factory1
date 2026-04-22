@@ -1,39 +1,36 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sun, Moon } from 'lucide-react';
+import { ArrowRight, Sun, Moon, ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../theme/LanguageContext';
 
 export default function Formations() {
+  const { t, isRTL } = useLanguage();
+  
   const categories = [
     {
-      title: 'Période Diurne',
+      title: t.formationsPage.diurne.title,
       icon: <Sun size={32} className="text-gold" />,
-      desc: 'Formations complètes de 10 à 12 mois pour une immersion totale.',
-      items: [
-        { name: 'Coiffure Hommes', path: '/formations/hommes/jour', image: 'https://i.postimg.cc/bvWf48vF/IMG-20260410-WA0095.jpg' },
-        { name: 'Coiffure Femmes', path: '/formations/femmes/jour', image: 'https://i.postimg.cc/vZxMQc6x/IMG-20260410-WA0088.jpg' },
-        { name: 'Esthétique & Soins', path: '/formations/esthetique/jour', image: 'https://i.postimg.cc/MKFq2yXj/IMG-20260410-WA0097.jpg' },
-      ]
+      desc: t.formationsPage.diurne.desc,
+      path: '/diurne'
     },
     {
-      title: 'Période Nocturne',
+      title: t.formationsPage.nocturne.title,
       icon: <Moon size={32} className="text-gold" />,
-      desc: 'Programmes accélérés de 6 mois pour les personnes actives.',
-      items: [
-        { name: 'Coiffure Hommes', path: '/formations/hommes/nuit', image: 'https://i.postimg.cc/g0nPMrGm/IMG-20260410-WA0119.jpg' },
-        { name: 'Coiffure Femmes', path: '/formations/femmes/nuit', image: 'https://i.postimg.cc/yYbs4FWJ/IMG-20260410-WA0098.jpg' },
-        { name: 'Esthétique & Soins', path: '/formations/esthetique/nuit', image: 'https://i.postimg.cc/ncPpbvMZ/IMG-20260410-WA0100.jpg' },
-      ]
+      desc: t.formationsPage.nocturne.desc,
+      path: '/nocturne'
     }
   ];
 
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20 space-y-4">
-        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Nos Programmes</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">VOTRE <span className="text-gold">FORMATION</span></h1>
+        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs font-sans">{t.formationsPage.tag}</span>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase font-sans">
+          {t.formationsPage.title.split(' ')[0]} <span className="text-gold">{t.formationsPage.title.split(' ').slice(1).join(' ')}</span>
+        </h1>
         <p className="text-white/60 max-w-2xl mx-auto font-medium">
-          Choisissez le programme qui correspond à votre emploi du temps et à vos ambitions professionnelles.
+          {t.formationsPage.desc}
         </p>
       </div>
 
@@ -51,16 +48,16 @@ export default function Formations() {
               {cat.icon}
             </div>
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase">{cat.title}</h2>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase font-sans">{cat.title}</h2>
               <p className="text-white/60 font-medium text-lg leading-relaxed max-w-sm mx-auto">
                 {cat.desc}
               </p>
             </div>
             <Link 
-              to={cat.title === 'Période Diurne' ? '/diurne' : '/nocturne'}
-              className="mt-4 px-12 py-5 bg-gold text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white transition-all duration-500 flex items-center gap-3"
+              to={cat.path}
+              className="mt-4 px-12 py-5 bg-gold text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white transition-all duration-500 flex items-center gap-3 font-sans"
             >
-              Découvrir les FILIÈRES <ArrowRight size={20} />
+              {t.formationsPage.cta} {isRTL ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
             </Link>
           </motion.div>
         ))}

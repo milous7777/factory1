@@ -2,13 +2,15 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Chatbot from './Chatbot';
 import GeometricGrid from './GeometricGrid';
 import { motion } from 'motion/react';
+import { useLanguage } from '../theme/LanguageContext';
 
 export default function Layout() {
+  const { isRTL, language } = useLanguage();
+
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative" dir={isRTL ? "rtl" : "ltr"} lang={language}>
       <GeometricGrid />
       <Navbar />
       <main className="flex-1">
@@ -21,7 +23,6 @@ export default function Layout() {
         </motion.div>
       </main>
       <Footer />
-      <Chatbot />
     </div>
   );
 }

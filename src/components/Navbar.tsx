@@ -1,44 +1,52 @@
 import React, { useState } from 'react';
-import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown, Globe } from 'lucide-react';
 import { useTheme } from '../theme/ThemeContext';
+import { useLanguage } from '../theme/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isFormationsOpen, setIsFormationsOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Accueil', path: '/' },
+    { name: t.nav.home, path: '/' },
     { 
-      name: 'Formations', 
+      name: t.nav.formations, 
       path: '/formations',
       submenu: [
-        { name: 'Période Diurne', path: '/diurne' },
-        { name: 'Période Nocturne', path: '/nocturne' },
+        { name: t.nav.diurne, path: '/diurne' },
+        { name: t.nav.nocturne, path: '/nocturne' },
       ]
     },
-    { name: 'Diplômés', path: '/diplomes' },
-    { name: 'Galerie', path: '/galerie' },
-    { name: 'À Propos', path: '/a-propos' },
-    { name: 'Contact', path: '/contact' },
+    { name: t.nav.graduates, path: '/diplomes' },
+    { name: t.nav.gallery, path: '/galerie' },
+    { name: t.nav.about, path: '/a-propos' },
+    { name: t.nav.contact, path: '/contact' },
   ];
 
   return (
     <>
       {/* Floating Controls - Smaller and Thinner */}
       <nav className="fixed top-4 left-0 right-0 z-50 px-6 flex justify-between items-center pointer-events-none">
-        {/* Theme Toggle Button */}
+        {/* Language Toggle Button */}
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          onClick={toggleTheme}
-          className="pointer-events-auto w-10 h-10 rounded-full flex items-center justify-center bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl text-gold"
+          onClick={() => setLanguage(language === 'fr' ? 'ar' : 'fr')}
+          className="pointer-events-auto min-w-[40px] h-10 px-3 rounded-full flex items-center justify-center gap-2 bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl text-gold group transition-all"
         >
-          {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          <Globe size={18} className="group-hover:rotate-12 transition-transform" />
+          <span className={cn(
+            "text-[10px] font-black uppercase tracking-widest",
+            language === 'ar' ? "font-arabic" : ""
+          )}>
+            {language === 'fr' ? 'AR' : 'FR'}
+          </span>
         </motion.button>
 
         {/* Menu Button */}
@@ -153,15 +161,26 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
-                  className="pt-4"
+                  className="pt-4 space-y-4"
                 >
+                  {/* Theme Toggle in Menu */}
+                  <button
+                    onClick={toggleTheme}
+                    className="w-full py-3 flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all text-white/70 hover:text-gold border border-white/10"
+                  >
+                    {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+                    <span className="text-[10px] font-black uppercase tracking-widest">
+                      {theme === 'light' ? 'Mode Sombre' : 'Mode Clair'}
+                    </span>
+                  </button>
+
                   <Link to="/inscription" onClick={() => setIsOpen(false)}>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       className="w-full py-3.5 bg-gold text-black font-black uppercase tracking-widest text-[10px] rounded-xl shadow-xl hover:bg-gold-light transition-colors"
                     >
-                      Inscription
+                      {t.nav.inscription}
                     </motion.button>
                   </Link>
                 </motion.div>

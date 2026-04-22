@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
+import { useLanguage } from '../theme/LanguageContext';
 
 export default function Gallery() {
+  const { t, isRTL } = useLanguage();
   const [filter, setFilter] = useState<'all' | 'femmes' | 'hommes'>('all');
 
   const categories = [
-    { id: 'all', name: 'Tout' },
-    { id: 'femmes', name: 'Esthétique & Femmes' },
-    { id: 'hommes', name: 'Coiffure Hommes' },
+    { id: 'all', name: t.gallery.all },
+    { id: 'femmes', name: t.gallery.femmes },
+    { id: 'hommes', name: t.gallery.hommes },
   ];
 
   const images = [
@@ -69,10 +71,12 @@ export default function Gallery() {
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12 space-y-4">
-        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Immersion</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">NOTRE <span className="text-gold">UNIVERS</span></h1>
+        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs font-sans">{t.gallery.tag}</span>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase font-sans">
+          {t.gallery.title.split(' ')[0]} <span className="text-gold">{t.gallery.title.split(' ')[1]}</span>
+        </h1>
         <p className="text-text-secondary max-w-2xl mx-auto font-medium opacity-80">
-          Explorez nos locaux modernes, nos salles de cours équipées et l'ambiance créative qui règne au sein de l'institut.
+          {t.gallery.desc}
         </p>
       </div>
 
@@ -82,7 +86,7 @@ export default function Gallery() {
             key={cat.id}
             onClick={() => setFilter(cat.id as any)}
             className={cn(
-              "px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border",
+              "px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border font-sans",
               filter === cat.id 
                 ? "bg-gold text-black border-gold shadow-lg shadow-gold/20" 
                 : "bg-white/5 text-white/60 border-white/10 hover:border-gold/50"

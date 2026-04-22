@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../theme/LanguageContext';
 
 export default function Graduates() {
+  const { t } = useLanguage();
   const graduates = [
     'https://i.postimg.cc/bNSKK4tK/IMG_20260410_WA0000.jpg',
     'https://i.postimg.cc/9Xn6gcDc/IMG_20260410_WA0001.jpg',
@@ -28,11 +30,12 @@ export default function Graduates() {
   return (
     <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20 space-y-4">
-        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Succès & Fierté</span>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter">NOS <span className="text-gold">DIPLÔMÉS</span></h1>
+        <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs font-sans">{t.graduates.tag}</span>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase font-sans">
+          {t.graduates.title.split(' ')[0]} <span className="text-gold">{t.graduates.title.split(' ')[1]}</span>
+        </h1>
         <p className="text-text-secondary max-w-2xl mx-auto font-medium opacity-80">
-          Découvrez les visages de ceux qui ont fait confiance à l'Institut Factory pour lancer leur carrière. 
-          Chaque photo représente une réussite, un talent et un avenir prometteur.
+          {t.graduates.desc}
         </p>
       </div>
 
