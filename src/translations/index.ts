@@ -184,8 +184,8 @@ export const translations: Record<Language, Translations> = {
       inscription: 'Inscription',
     },
     hero: {
-      welcome: 'Bienvenue au',
-      title: 'Centre Factory',
+      welcome: "Bienvenue à",
+      title: "L'Institut Factory",
       formations: 'Formations',
       inscription: "S'inscrire",
     },
@@ -365,7 +365,7 @@ export const translations: Record<Language, Translations> = {
     },
     hero: {
       welcome: 'مرحبا بكم في',
-      title: 'مركز فاكتوري',
+      title: 'معهد فاكتوري',
       formations: 'التكوينات',
       inscription: 'تسجيل',
     },
