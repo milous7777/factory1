@@ -334,7 +334,7 @@ export default function Home() {
               />
             </video>
             {/* Subtle Blur & Overlay */}
-            <div className="absolute inset-0 backdrop-blur-[3px] bg-black/40" />
+            <div className="absolute inset-0 backdrop-blur-[1.5px] bg-black/40" />
           </div>
 
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-[1]">

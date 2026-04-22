@@ -52,22 +52,22 @@ export default function Hero() {
             </span>
           </h1>
           
-          <div className={cn("flex flex-wrap gap-3 mt-1", isRTL && "flex-row-reverse")}>
+          <div className={cn("flex flex-row items-center gap-2 mt-1", isRTL && "flex-row-reverse")}>
             <Link to="/formations">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gold text-black text-xs font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-xl hover:bg-gold-light transition-colors font-sans"
+                className="px-4 md:px-8 py-3 bg-gold text-black text-[10px] md:text-xs font-black uppercase tracking-widest rounded-full flex items-center gap-1 md:gap-2 shadow-xl hover:bg-gold-light transition-colors font-sans whitespace-nowrap"
               >
                 {t.hero.formations}
-                {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+                {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
               </motion.button>
             </Link>
             <Link to="/inscription">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-transparent border border-white/40 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/10 transition-colors font-sans"
+                className="px-4 md:px-8 py-3 bg-transparent border border-white/40 text-white text-[10px] md:text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/10 transition-colors font-sans whitespace-nowrap"
               >
                 {t.hero.inscription}
               </motion.button>
