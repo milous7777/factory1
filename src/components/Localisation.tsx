@@ -8,7 +8,7 @@ const Localisation: React.FC = () => {
   const { t, isRTL } = useLanguage();
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto space-y-16">
+    <section className="py-24 px-6 max-w-7xl mx-auto space-y-16 overflow-hidden">
       <div className={cn("text-center space-y-4", isRTL && "text-right")}>
         <motion.span 
           initial={{ opacity: 0, y: 10 }}

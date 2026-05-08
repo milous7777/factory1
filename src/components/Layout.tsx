@@ -10,7 +10,7 @@ export default function Layout() {
   const { isRTL, language } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col relative" dir={isRTL ? "rtl" : "ltr"} lang={language}>
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"} lang={language}>
       <GeometricGrid />
       <Navbar />
       <main className="flex-1">

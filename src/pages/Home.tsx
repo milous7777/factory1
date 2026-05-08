@@ -63,7 +63,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       <Hero />
 
       {/* Introduction Section */}
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Formations Grid */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
         <div className="text-center mb-20 space-y-4">
           <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs font-sans">{t.home.destiny}</span>
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase font-sans">
