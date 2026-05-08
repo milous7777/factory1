@@ -1,13 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useLanguage } from '../theme/LanguageContext';
 import { cn } from '../lib/utils';
 
 const logos = [
-  { id: 1, src: "https://i.postimg.cc/Zny6GxJS/20260422-152521.png", alt: "Royaume du Maroc" },
-  { id: 2, src: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Logo_OFPPT.png", alt: "OFPPT" },
-  { id: 3, src: "https://i.postimg.cc/tJ0vGZfL/Whats-App-Image-2026-04-22-at-15-25-21-2.png", alt: "Accréditation" },
-  { id: 4, src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_de_la_r%C3%A9gion_Souss-Massa.png/1200px-Logo_de_la_r%C3%A9gion_Souss-Massa.png", alt: "Région Souss-Massa" },
+  { id: 1, src: "https://files.catbox.moe/hu0aw6.png", alt: "Accréditation 1" },
+  { id: 2, src: "https://files.catbox.moe/4f9yfb.png", alt: "Accréditation 2" },
+  { id: 3, src: "https://files.catbox.moe/yab4kr.png", alt: "Accréditation 3" },
+  { id: 4, src: "https://files.catbox.moe/vf2nff.png", alt: "Accréditation 4" },
 ];
 
 // Doubling logos for seamless infinite scroll
@@ -79,10 +79,10 @@ export const Accreditations: React.FC = () => {
           </div>
 
           {/* Logo Scroll Column - 7 columns */}
-          <div className="lg:col-span-7 relative w-full overflow-hidden bg-gray-50/50 rounded-2xl p-1 md:p-2 border border-gray-100 shadow-sm flex items-center min-h-[140px] md:min-h-[180px]">
+          <div className="lg:col-span-7 relative w-full overflow-hidden bg-gray-50/50 rounded-2xl p-1 md:p-2 border border-gray-100 shadow-sm flex items-center min-h-[160px] md:min-h-[220px]">
             <div className="flex w-full overflow-hidden">
               <motion.div
-                className="flex gap-12 md:gap-20 items-center py-2"
+                className="flex gap-6 md:gap-8 items-center py-4"
                 animate={{
                   x: isRTL ? [0, 1000] : [0, -1000],
                 }}
@@ -97,13 +97,13 @@ export const Accreditations: React.FC = () => {
                 {scrollLogos.map((logo, index) => (
                   <div
                     key={`${logo.id}-${index}`}
-                    className="flex-shrink-0 w-40 md:w-56 px-4 filter grayscale contrast-125 opacity-40 transition-all duration-700 hover:grayscale-0 hover:opacity-100 hover:scale-105"
+                    className="flex-shrink-0 w-52 md:w-80 px-2 filter grayscale contrast-125 opacity-60 transition-all duration-700 hover:grayscale-0 hover:opacity-100 hover:scale-110"
                   >
                     <img
                       src={logo.src}
                       alt={logo.alt}
                       referrerPolicy="no-referrer"
-                      className="h-16 md:h-24 w-auto object-contain mx-auto"
+                      className="h-28 md:h-44 w-auto object-contain mx-auto"
                     />
                   </div>
                 ))}
